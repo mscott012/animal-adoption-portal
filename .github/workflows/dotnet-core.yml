@@ -20,7 +20,7 @@ jobs:
     - name: Dotnet pack
       env:
         version: 1.0.0
-      run: dotnet pack -o . -p:PackageVersion=$version.${{ github.run_number }}
+      run: dotnet pack -o . -p:PackageVersion=$version.999
     - name: Add NuGet Source
       run: dotnet nuget add source https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json -n github -u ${{ github.repository_owner }} -p ${{ secrets.PACKAGES_PAT }} --store-password-in-clear-text
     - name: Publish NuGet Package
